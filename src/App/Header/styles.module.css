@@ -1,0 +1,31 @@
+.header {
+  display: flex;
+}
+
+.menu-bar {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.title {
+  width: 180px;
+  padding-right: 18px;
+}
+
+.title > a {
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.login-button {
+  color: white;
+}
+
+.login-username {
+  padding-left: 10px;
+  color: white;
+  font-weight: bold;
+  font-size: 14px;
+}
