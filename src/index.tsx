@@ -1,10 +1,10 @@
+import store from "@/infrastructure/store";
+import "antd/dist/antd.css";
 import React from "react";
 import ReactDOM from "react-dom";
+import { Provider } from "react-redux";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import "antd/dist/antd.css";
-import { Provider } from "react-redux";
-import store from "@/infrastructure/store";
 
 ReactDOM.render(
   <React.StrictMode>
@@ -14,6 +14,7 @@ ReactDOM.render(
   </React.StrictMode>,
   document.getElementById("root")
 );
+
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
