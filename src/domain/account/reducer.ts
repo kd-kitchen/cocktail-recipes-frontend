@@ -11,6 +11,7 @@ const emptyUser: T.LoginResult = {
   username: "",
   email: "",
   token: "",
+  exp: ""
 };
 
 const defaultStore: Store = {

@@ -14,4 +14,5 @@ export type LoginResult = {
   email: string;
   isAdmin: boolean;
   token: string;
+  exp: string;
 };

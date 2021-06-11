@@ -29,3 +29,11 @@
   font-weight: bold;
   font-size: 14px;
 }
+
+.login-username:hover {
+  color: #1890ff;
+}
+
+.user-menu {
+  cursor: pointer;
+}
