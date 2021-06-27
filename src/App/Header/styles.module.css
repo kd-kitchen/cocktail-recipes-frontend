@@ -10,7 +10,7 @@
 
 .title {
   width: 180px;
-  padding-right: 18px;
+  padding-right: 6px;
 }
 
 .title > a {
@@ -36,4 +36,10 @@
 
 .user-menu {
   cursor: pointer;
+}
+
+.center-button {
+  width: 50%;
+  display: flex;
+  justify-content: center;
 }

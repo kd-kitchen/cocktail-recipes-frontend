@@ -1,32 +1,25 @@
-import { AccountAction, AccountSelector } from "@/domain/account";
-import { useRootSelector } from "@/infrastructure/selector";
+import { AccountAction } from "@/domain/account";
 import { Button, Col, Form, Input, Row } from "antd";
 import React from "react";
 import { useDispatch } from "react-redux";
-import { Link, Navigate } from "react-router-dom";
-import styles from "@/App/Header/styles.module.css";
 
-const LoginForm = () => {
-  const { isLoading, isLoggedIn } = useRootSelector((s) => ({
-    isLoggedIn: AccountSelector.isLoggedIn(s),
-    isLoading: s.account.status.login === "REQUEST"
-  }));
+const CreateAcc = () => {
+  // const { isLoading, isLoggedIn } = useRootSelector((s) => ({
+  //   isLoggedIn: AccountSelector.isLoggedIn(s),
+  //   isLoading: s.account.status.login === "REQUEST"
+  // }));
   const dispatch = useDispatch();
 
   const md = 4;
   const sm = 24;
 
-  if (isLoggedIn) {
-    return <Navigate to="/" />;
-  }
-
   return (
     <Row justify="center">
-      <Col md={12} sm={24}>
+      <Col md={14} sm={26}>
         <Form
           labelCol={{ md, sm }}
-          wrapperCol={{ md: 24 - md, sm }}
-          name="login-form"
+          wrapperCol={{ md: 26 - md, sm }}
+          name="create-form"
           onFinish={(v) => {
             dispatch(AccountAction.LoginAccountAsync.request(v));
           }}
@@ -35,22 +28,27 @@ const LoginForm = () => {
             <Input />
           </Form.Item>
 
+          <Form.Item label="Email" name="email" rules={[{ required: true, message: "Email is required" }]}>
+            <Input />
+          </Form.Item>
+
           <Form.Item label="Password" name="password" rules={[{ required: true, message: "Password is required" }]}>
             <Input.Password />
           </Form.Item>
 
+          <Form.Item label="Confirm Password" name="password" rules={[{ required: true, message: "Please confirm password" }]}>
+            <Input.Password />
+          </Form.Item>
+
           <Form.Item wrapperCol={{ sm: { offset: sm, span: sm }, md: { offset: md, span: 24 - md } }}>
-            <Button type="primary" htmlType="submit" disabled={isLoading} loading={isLoading}>
-              Login
+            <Button type="primary" htmlType="submit" >
+              Create Account & Login
             </Button>
           </Form.Item>
         </Form>
-        <Button type="primary" className={styles.centerButton}><Link to="/account/createacc">
-          Create new account
-        </Link></Button>
       </Col>
     </Row>
   );
 };
 
-export default LoginForm;
+export default CreateAcc;

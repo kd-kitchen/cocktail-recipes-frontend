@@ -1,8 +1,8 @@
 import RootState from "@/domain/root-state";
-import axios, { AxiosInstance, AxiosRequestConfig } from "axios";
-import { select } from "redux-saga/effects";
+import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
+import { call, select } from "redux-saga/effects";
 
-const baseURL = (function () {
+const baseURL = (function() {
   if (!!process.env["REACT_APP_BASE_API"]) return process.env["REACT_APP_BASE_API"];
 
   const { protocol, hostname, port } = window.location;
@@ -21,27 +21,31 @@ export function* createInstance() {
   return axios.create({
     baseURL,
     headers: {
-      Authorization: `Bearer ${token}`,
-    },
+      Authorization: `Bearer ${token}`
+    }
   });
 }
 
 export function* get<T>(url: string, config?: AxiosRequestConfig) {
   const c: AxiosInstance = yield createInstance();
-  return c.get<T>(url, config);
+  const response: AxiosResponse<T> = yield call([c, c.get], url, config);
+  return response;
 }
 
 export function* post<T>(url: string, data?: any, config?: AxiosRequestConfig) {
   const c: AxiosInstance = yield createInstance();
-  return c.post<T>(url, data, config);
+  const response: AxiosResponse<T> = yield call([c, c.post], url, data, config);
+  return response;
 }
 
 export function* put<T>(url: string, data?: any, config?: AxiosRequestConfig) {
   const c: AxiosInstance = yield createInstance();
-  return c.put<T>(url, data, config);
+  const response: AxiosResponse<T> = yield call([c, c.put], url, data, config);
+  return response;
 }
 
 export function* del<T>(url: string, config?: AxiosRequestConfig) {
   const c: AxiosInstance = yield createInstance();
-  return c.delete<T>(url, config);
+  const response: AxiosResponse<T> = yield call([c, c.delete], url, config);
+  return response;
 }
