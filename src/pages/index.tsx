@@ -2,6 +2,7 @@ import React from "react";
 import AccountMasterPage from "./Account";
 import Home from "./Home";
 import IngredientMasterPage from "./Ingredients";
+import RecipeMasterPage from "@/pages/Recipes";
 
 type Route = {
   path: string;
@@ -14,7 +15,7 @@ type Route = {
 const routes: Route[] = [
   { path: "/", exact: true, skipMenu: true, component: <Home /> },
   { path: "/account", skipMenu: true, component: <AccountMasterPage /> },
-  { path: "/recipes", sectionName: "Browse Recipes", component: <div>To Do</div> },
+  { path: "/recipes", sectionName: "Browse Recipes", component: <RecipeMasterPage /> },
   { path: "/ingredients", sectionName: "Ingredients", component: <IngredientMasterPage /> },
   { path: "/contact", sectionName: "Contact Us", component: <div>To Do</div> },
 ];

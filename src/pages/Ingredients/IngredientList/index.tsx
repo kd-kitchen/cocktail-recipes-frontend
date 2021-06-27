@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { IngredientAction as A } from "@/domain/ingredient";
 import { useRootSelector } from "@/infrastructure/selector";
 import IngredientCard from "./IngredientCard";
+import { Col, Row } from "antd";
 
 
 const IngredientList = () => {
@@ -21,11 +22,13 @@ const IngredientList = () => {
     return <div>Loading</div>;
   }
 
-  return <div>
+  return <Row gutter={[6, 24]}>
     {ingredients.map(({ id, name, description }) => (
-      <IngredientCard key={id} id={id} name={name} description={description} />
+      <Col key={id} xs={24} sm={12} md={12} lg={8} xl={6} xxl={4}>
+        <IngredientCard id={id} name={name} description={description} />
+      </Col>
     ))}
-  </div>;
+  </Row>;
 };
 
 export default IngredientList;

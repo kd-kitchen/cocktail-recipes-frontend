@@ -1,10 +1,11 @@
 import { all, call, delay, spawn } from "redux-saga/effects";
 import { AccountSaga } from "./account";
 import { IngredientSaga } from "./ingredient";
+import { RecipeSaga } from "./recipe";
 
 function* rootSaga() {
   // List your sagas here
-  const sagas = [AccountSaga, IngredientSaga].map(recoverable);
+  const sagas = [AccountSaga, IngredientSaga, RecipeSaga].map(recoverable);
   yield all(sagas.map(call));
 }
 

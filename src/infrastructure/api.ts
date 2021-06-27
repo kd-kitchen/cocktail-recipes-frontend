@@ -15,6 +15,8 @@ const baseURL = (function() {
   }
 })();
 
+export const getImageUrl = (filepath: string) => `${baseURL}/images/${filepath}`
+
 export function* createInstance() {
   const token: string = yield select((s: RootState) => s.account.token);
 
