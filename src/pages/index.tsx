@@ -17,7 +17,7 @@ const routes: Route[] = [
   { path: "/account", skipMenu: true, component: <AccountMasterPage /> },
   { path: "/recipes", sectionName: "Browse Recipes", component: <RecipeMasterPage /> },
   { path: "/ingredients", sectionName: "Ingredients", component: <IngredientMasterPage /> },
-  { path: "/contact", sectionName: "Contact Us", component: <div>To Do</div> },
+  { path: "/contact", sectionName: "Cart", component: <div>To Do</div> },
 ];
 
 export default routes;
